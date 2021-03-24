@@ -5,6 +5,8 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
 
+
+//Connecting to database
 const connectString = "mongodb+srv://admin:dGakD2MeWQprWN02@cluster0.stgq9.mongodb.net/tinderdb?retryWrites=true&w=majority";
 
 mongoose.connect(connectString, {useUnifiedTopology: true, useNewUrlParser: true })
@@ -20,10 +22,10 @@ app.use(morgan("dev"))
 app.use(bodyParser.json())
 app.use(expressValidator())
 
-//bring in routes
+//Adding post routes
 const postRoutes = require('./routes/post')
-
 app.use('/', postRoutes)
 
+//Configuring port
 const port = 8080;
 app.listen(port, () => {console.log(`Listening on ${port}`)})

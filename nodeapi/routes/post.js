@@ -6,6 +6,8 @@ const router = express.Router()
 
 router.get('/', postController.getPosts)
 
+router.get('/post', postController.viewPost)
+
 router.post('/post', validator.createPostValidator, postController.createPost)
 
 router.delete('/post', postController.deletePost)
