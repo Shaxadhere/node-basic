@@ -7,7 +7,7 @@ const morgan = require('morgan')
 app.use(morgan("dev"))
 
 //bring in routes
-const {getPosts} = require('./routes/posts')
+const {getPosts} = require('./routes/post')
 
 app.get('/', getPosts)
 
