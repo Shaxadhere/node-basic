@@ -17,3 +17,20 @@ exports.createPost = (req, res) => {
         })
     })
 }
+
+exports.deletePost = (req, res) => {
+    var id = req.body.id;
+    console.log(id)
+    Post.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log(err.message);
+            res.status(500).json({
+                "error": "Internal server error"
+            })
+
+            res.status(200).json({
+                "message": "Post deleted successfully"
+            }) 
+        }
+    })
+}

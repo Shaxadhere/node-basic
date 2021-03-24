@@ -8,4 +8,6 @@ router.get('/', postController.getPosts)
 
 router.post('/post', validator.createPostValidator, postController.createPost)
 
+router.delete('/post', postController.deletePost)
+
 module.exports = router
