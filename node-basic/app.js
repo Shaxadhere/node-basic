@@ -1,7 +1,7 @@
-const http = require('http');
+const express = require('express');
 
-const server = http.createServer((req, res) => {
-    res.end("hello from browser updated");
-});
+const app = express();
 
-server.listen(3000)
+app.get('/', (req, res) => {
+    
+})
