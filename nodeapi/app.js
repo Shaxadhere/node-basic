@@ -9,7 +9,7 @@ const expressValidator = require('express-validator')
 //Connecting to database
 const connectString = "mongodb+srv://admin:dGakD2MeWQprWN02@cluster0.stgq9.mongodb.net/tinderdb?retryWrites=true&w=majority";
 
-mongoose.connect(connectString, {useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connect(connectString, {useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false })
 .then(() => console.log("Connected to database"))
 
 mongoose.connection.on('error', err => {
