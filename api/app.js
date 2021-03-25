@@ -28,7 +28,8 @@ app.use(morgan("dev"));
 app.use(expressValidator())
 
 //Adding post routes
-
+const postRoutes = require('./routes/post')
+app.use('/', postRoutes)
 
 
 //Listening to server
