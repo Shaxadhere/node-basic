@@ -22,28 +22,25 @@ exports.ViewPost = (req, res) => {
 
 exports.UpdatePost = (req, res) => {
     var id = req.body.id;
-    Post.findByIdAndUpdate(id, function(error){
-        if(error){
-            res.status(500).json({
-                "message": "Internal server error"
-            })
+    var title = req.body.title
+    var body = req.body.body
+    Post.findByIdAndUpdate(id, {
+        title: title,
+        body: body
+    }, function (error) {
+        if (error) {
+            res.status(500).json({"message": "Internal server error"})
         }
-        res.status(200).json({
-            "message": "Post modified successfully"
-        })
+        res.status(200).json({"message": "Post modified successfully"})
     }).catch(err => console.log(err))
 }
 
 exports.DeletePost = (req, res) => {
     var id = req.body.id;
-    Post.findByIdAndDelete(id, function(error){
-        if(error){
-            res.status(500).json({
-                "message": "Internal server error"
-            })
+    Post.findByIdAndDelete(id, function (error) {
+        if (error) {
+            res.status(500).json({"message": "Internal server error"})
         }
-        res.status(200).json({
-            "message": "Post deleted successfully"
-        })
+        res.status(200).json({"message": "Post deleted successfully"})
     })
 }
